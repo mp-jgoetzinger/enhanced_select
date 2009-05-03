@@ -1,7 +1,90 @@
-= enhanced_select
+= Overview
 
-Description goes here.
+An enhanced select helper for forms that allows you to use the full {HTML spec}[http://www.w3schools.com/tags/tag_option.asp] for select option elements. This is more than what you get with the default Rails select helper which only allows you to specify the value, text, and selected/disabled attributes.
 
-== Copyright
+= License
 
-Copyright (c) 2009 Brooke Kuhlmann. See LICENSE for details.
+Copyright (c) 2009 Brooke Kuhlmann of {Berserk Technologies}[http://www.berserktech.com].
+See the included LICENSE for more info.
+
+= History
+
+See the CHANGELOG file for more info.
+
+= Requirements
+
+1. {Ruby on Rails}[http://rubyonrails.org].
+
+= Installation
+
+Type the following from the command line to install:
+
+* *UNIX*: sudo gem install aeonscope-enhanced_select
+* *Windows*: gem install aeonscope-enhanced_select
+
+Update your environment.rb file to include the new gem:
+
+* config.gem "enhanced_select"
+
+= Usage
+
+Simply use "enhanced_select" instead of the Rails "select" helper method in your views:
+
+  <% form_for @city do |form| %>
+    <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
+  <% end %>
+
+This will then yield the following results:
+
+  <select id="<auto filled>" name="<auto filled>">
+    <option value="">-select-</option>
+    <option value="1">Goldbugs</option>
+    <option value="2">Falcons</option>
+  </select>
+
+While the above is a simple example, lets look at a more interesting case. Assuming we are still dealing with cities, lets say
+we want cities but we want each city to have CSS classes associated with so that we might be able to attach jQuery behaviors to
+each option as it is selected (that and/or maybe we want to style each option). Here is how things might play out:
+
+<b>Model Code</b>
+
+  class School < ActiveRecord::Base
+    def kind
+	  [special? ? "special" : nil, restricted? ? "restricted" : nil].compact.join(' ')
+    end
+  end
+
+<b>Controller Code</b>
+
+  class CityController < ApplicationController
+    before_filter :form_data, :only => [:new, :create, :edit, :update]
+
+	private
+	
+	def form_data
+      @schools = School.all.collect {|school| {:value => school.id, :class => school.kind, :text => school.label}}
+	end
+  end
+
+<b>View Code</b>
+
+  <% form_for @city do |form| %>
+    <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
+  <% end %>
+
+This would then yield the following results:
+
+  <select id="<auto filled>" name="<auto filled>">
+    <option value="">-select-</option>
+    <option value="1" class="restricted">Goldbugs</option>
+    <option value="2" class="special">Falcons</option>
+  </select>
+
+The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text
+as shown above. The best part is that you have total control over how select options are built for your views.
+
+= Contact/Feedback/Issues
+
+* {Berserk Technologies}[http://www.berserktech.com] - Company web site.
+* Aeonscope[http://www.aeonscope.net] - Personal web site.
+* Twitter[http://www.twitter.com/Aeonscope] - Short bursts of insight and/or noise.

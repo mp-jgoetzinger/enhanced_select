@@ -5,12 +5,15 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "enhanced_select"
-    gem.summary = %Q{TODO}
+    gem.summary = "An enhanced select helper for forms that allows you to use the full HTML spec for select option elements."
+    gem.description = "Enhances the default capabilities found with the Rails select helper. Instead of being able to supply just the value, text, and selected/disabled attributes, you can use all valid HTML attributes for select option elements."
+    gem.authors = ["Brooke Kuhlmann"]
     gem.email = "aeonscope@gmail.com"
     gem.homepage = "http://github.com/aeonscope/enhanced_select"
-    gem.authors = ["Brooke Kuhlmann"]
-
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+		gem.required_ruby_version = ">= 1.8.6"
+		gem.add_dependency "rails", ">= 2.3.2"
+		gem.rdoc_options << "CHANGELOG.rdoc"
+		gem.files = FileList["[A-Z]*", "{bin,lib,generators,rails_generators,test,spec}/**/*"]
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
@@ -35,7 +38,6 @@ rescue LoadError
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
 end
-
 
 task :default => :test
 
