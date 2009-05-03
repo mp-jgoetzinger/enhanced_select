@@ -1,0 +1,7 @@
+= enhanced_select
+
+Description goes here.
+
+== Copyright
+
+Copyright (c) 2009 Brooke Kuhlmann. See LICENSE for details.
