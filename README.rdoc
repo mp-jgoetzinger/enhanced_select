@@ -50,7 +50,7 @@ each option as it is selected (that and/or maybe we want to style each option). 
 
   class School < ActiveRecord::Base
     def kind
-	  [special? ? "special" : nil, restricted? ? "restricted" : nil].compact.join(' ')
+      [special? ? "special" : nil, restricted? ? "restricted" : nil].compact.join(' ')
     end
   end
 
@@ -59,11 +59,11 @@ each option as it is selected (that and/or maybe we want to style each option). 
   class CityController < ApplicationController
     before_filter :form_data, :only => [:new, :create, :edit, :update]
 
-	private
-	
-	def form_data
+    private
+
+    def form_data
       @schools = School.all.collect {|school| {:value => school.id, :class => school.kind, :text => school.label}}
-	end
+    end
   end
 
 <b>View Code</b>
