@@ -42,21 +42,36 @@ This will then yield the following results:
     <option value="2">Falcons</option>
   </select>
 
+The enhanced_select method takes all the standard options as the default Rails select method.  The only difference is that for
+the options, it expects an array of hashes. So using the @schools variable above, we might have filled it with the following data:
+
+  @schools = [{:value => 1, :text => "Goldbugs"}, {:value => 2, :text => "Falcons"}]
+
+<b>NOTE:</b> While enhanced_select accepts a hash where all keys will be represented as attribute keys in the resulting HTML, the
+:text key is reserved for specifying the content you wish to display between the resulting <option></option> tags.
+
 While the above is a simple example, lets look at a more interesting case. Assuming we are still dealing with cities, lets say
 we want cities but we want each city to have CSS classes associated with so that we might be able to attach jQuery behaviors to
 each option as it is selected (that and/or maybe we want to style each option). Here is how things might play out:
 
 <b>Model Code</b>
 
+  class City < ActiveRecord::Base
+    has_many :schools
+  end
+
   class School < ActiveRecord::Base
+    belongs_to :city
+	
     def kind
-      [special? ? "special" : nil, restricted? ? "restricted" : nil].compact.join(' ')
+      [(public? ? "public" : nil), (private? ? "private" : nil)].compact.join(' ')
     end
   end
 
 <b>Controller Code</b>
 
   class CityController < ApplicationController
+    include Rest
     before_filter :form_data, :only => [:new, :create, :edit, :update]
 
     private
@@ -76,8 +91,8 @@ This would then yield the following results:
 
   <select id="<auto filled>" name="<auto filled>">
     <option value="">-select-</option>
-    <option value="1" class="restricted">Goldbugs</option>
-    <option value="2" class="special">Falcons</option>
+    <option value="1" class="private">Goldbugs</option>
+    <option value="2" class="public">Falcons</option>
   </select>
 
 The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text

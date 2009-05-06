@@ -1,3 +1,7 @@
+= v1.x.x
+
+* Updated and clarified the readme text.
+
 = v1.0.0
 
 * Initial version.
