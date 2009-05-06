@@ -24,7 +24,7 @@ Type the following from the command line to install:
 
 Update your environment.rb file to include the new gem:
 
-* config.gem "enhanced_select"
+* config.gem "aeonscope-enhanced_select", :lib => "enhanced_select", :source => "http://gems.github.com"
 
 = Usage
 
