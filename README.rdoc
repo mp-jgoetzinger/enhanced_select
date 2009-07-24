@@ -1,6 +1,6 @@
 = Overview
 
-An enhanced select helper for forms that allows you to use the full {HTML spec}[http://www.w3schools.com/tags/tag_option.asp] for select option elements. This is more than what you get with the default Rails select helper which only allows you to specify the value, text, and selected/disabled attributes.
+An enhanced select helper for forms that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select option elements. This is more than what you get with the default Rails select helper which only allows you to specify the value, text, and selected/disabled attributes.
 
 = License
 
@@ -34,7 +34,7 @@ Simply use "enhanced_select" instead of the Rails "select" helper method in your
     <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
   <% end %>
 
-This will then yield the following results:
+This will yield the following results:
 
   <select id="<auto filled>" name="<auto filled>">
     <option value="">-select-</option>
@@ -50,9 +50,7 @@ the options, it expects an array of hashes. So using the @schools variable above
 <b>NOTE:</b> While enhanced_select accepts a hash where all keys will be represented as attribute keys in the resulting HTML, the
 :text key is reserved for specifying the content you wish to display between the resulting <option></option> tags.
 
-While the above is a simple example, lets look at a more interesting case. Using the example above, lets say we want each school
-to have a CSS class associated with it so that we might be able to attach jQuery behaviors to each option (that and/or we want
-to style each option too). Here is how things might play out:
+While the above is a simple example, lets look at a more interesting case. Continuing with the example above, lets say we want each school to have a CSS class associated with it so that we might be able to attach jQuery behaviors to each option (that and/or we want to style each option too). Here is how things might play out:
 
 <b>Model Code</b>
 
@@ -64,7 +62,7 @@ to style each option too). Here is how things might play out:
     belongs_to :city
 	
     def kind
-      [(public? ? "public" : nil), (private? ? "private" : nil)].compact.join(' ')
+      [(public? ? "public" : nil), (private? ? "private" : nil)].compact * ' '
     end
   end
 
@@ -77,7 +75,7 @@ to style each option too). Here is how things might play out:
     private
 
     def form_data
-      @schools = School.all.collect {|school| {:value => school.id, :class => school.kind, :text => school.label}}
+      @schools = School.all.map {|school| {:value => school.id, :class => school.kind, :text => school.label}}
     end
   end
 
@@ -87,7 +85,7 @@ to style each option too). Here is how things might play out:
     <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
   <% end %>
 
-This would then yield the following results:
+This would yield the following results:
 
   <select id="<auto filled>" name="<auto filled>">
     <option value="">-select-</option>
@@ -95,8 +93,7 @@ This would then yield the following results:
     <option value="2" class="public">Falcons</option>
   </select>
 
-The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text
-as shown above. The best part is that you have total control over how select options are built for your views.
+The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text as shown above. The best part is that you have total control over how select options are built within your views.
 
 = Contact/Feedback/Issues
 

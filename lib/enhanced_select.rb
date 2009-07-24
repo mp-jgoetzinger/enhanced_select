@@ -37,7 +37,7 @@ module ActionView
 				key == :text ? '' : " #{key.to_s}=\"#{html_escape value.to_s}\""
 			end
     end
-    
+		
     class InstanceTag
       def to_enhanced_select_tag choices, options, html_options
         html_options = html_options.stringify_keys
