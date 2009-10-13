@@ -10,14 +10,14 @@ module ActionView
 			# HTML option attributes (http://www.w3schools.com/tags/tag_option.asp) where the hash key is the HTML attribute name and the hash
 			# value is the attribute value. If +selected+ is specified, then the matching option will get the selected.
       #
-      # Examples (call, result):
+      # ==== Examples:
       #   enhanced_options_for_select [{:value => 1, :text => "New York"}, {:value => 2, :text => "Denver"}]
       #   <option value="1">New York</option>\n<option value="2">Denver</option>
       #
       #   enhanced_options_for_select [{:value => "bmw", :text => "BMW"}, {:value => "tesla", :text => "Tesla Motors"}], "tesla"
       #   <option value="bmw">BMW</option>\n<option value="tesla" selected="selected">Tesla Motors</option>
       #
-      # NOTE: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.			
+      # *NOTE*: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.			
       def enhanced_options_for_select options = [], selected = nil
 				# Ensure option selections are unique.
 				options.each {|option| option.delete :selected}

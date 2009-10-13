@@ -1,6 +1,7 @@
 = v1.x.x (master)
 
-* Updated and clarified the readme text.
+* Updated and clarified the README.
+* Updated the RDoc.
 
 = v1.0.0
 
