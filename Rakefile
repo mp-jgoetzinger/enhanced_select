@@ -15,6 +15,7 @@ begin
 		gem.rdoc_options << "CHANGELOG.rdoc"
 		gem.files = FileList["[A-Z]*", "{bin,lib,generators,rails_generators,test,spec}/**/*"]
   end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
 end

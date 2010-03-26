@@ -19,12 +19,16 @@ See the CHANGELOG file for more info.
 
 Type the following from the command line to install:
 
-* *UNIX*: sudo gem install aeonscope-enhanced_select
-* *Windows*: gem install aeonscope-enhanced_select
+* *UNIX*: gem install enhanced_select
+* *Windows*: gem install enhanced_select
 
-Update your environment.rb file to include the new gem:
+Update your Gemfile to include the new gem:
 
-* config.gem "aeonscope-enhanced_select", :lib => "enhanced_select", :source => "http://gems.github.com"
+  gem "enhanced_select"
+
+...or if still using the environment.rb file:
+
+  config.gem "enhanced_select"
 
 = Usage
 
