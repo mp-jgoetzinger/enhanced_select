@@ -1,7 +1,8 @@
-= v1.x.x (master)
+= v1.0.1
 
 * Updated and clarified the README.
 * Updated the RDoc.
+* Moved to {Ruby Gems}[http://rubygems.org]
 
 = v1.0.0
 
