@@ -4,7 +4,7 @@ An enhanced select helper for forms that allows you to use the full {HTML spec}[
 
 = License
 
-Copyright (c) 2009 Brooke Kuhlmann of {Berserk Technologies}[http://www.berserktech.com].
+Copyright (c) 2009-2010 {Brooke Kuhlmann}[http://www.aeonscope.net].
 See the included LICENSE for more info.
 
 = History
