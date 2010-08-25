@@ -1,3 +1,7 @@
+= v1.x.x (master)
+
+* Added soft requirements for Ruby 1.8.6 and Rails 2.3.0.
+
 = v1.0.1
 
 * Updated and clarified the README.
