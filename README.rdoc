@@ -25,11 +25,11 @@ Type the following from the command line to install:
 
 Add the following to your Gemfile:
 
-  gem "number_to_fraction"
+  gem "enhanced_select"
 
 Add the following to your application.rb:
 
-  config.gem "number_to_fraction"
+  config.gem "enhanced_select"
 
 = Usage
 
