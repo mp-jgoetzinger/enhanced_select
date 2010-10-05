@@ -41,8 +41,8 @@ module ActionView
     class InstanceTag
       def to_enhanced_select_tag choices, options, html_options
         html_options = html_options.stringify_keys
-        add_default_name_and_id(html_options)
-        value = value(object)
+        add_default_name_and_id html_options
+        value = value object
         content_tag "select", add_options(enhanced_options_for_select(choices, value), options, value), html_options
       end
    end
