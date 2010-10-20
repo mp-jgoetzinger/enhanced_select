@@ -27,10 +27,6 @@ Add the following to your Gemfile:
 
   gem "enhanced_select"
 
-Add the following to your application.rb:
-
-  config.gem "enhanced_select"
-
 = Usage
 
 Simply use "enhanced_select" instead of the Rails "select" helper method in your views:
