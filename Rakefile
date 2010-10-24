@@ -8,7 +8,7 @@ begin
     gem.summary = "An enhanced select helper for forms that allows you to use the full HTML spec for select option elements."
     gem.description = "Enhances the default capabilities found with the Rails select helper. Instead of being able to supply just the value, text, and selected/disabled attributes, you can use all valid HTML attributes for select option elements."
     gem.authors = ["Brooke Kuhlmann"]
-    gem.email = "aeonscope@gmail.com"
+    gem.email = "brooke@redalchemist.com"
     gem.homepage = "http://github.com/aeonscope/enhanced_select"
 		gem.required_ruby_version = "~> 1.8.7"
 		gem.add_dependency "rails", "~> 3.0.0"
