@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Brooke Kuhlmann"]
   s.email       = ["brooke@redalchemist.com"]
   s.homepage    = "http://www.redalchemist.com"
-  s.summary     = "An enhanced select helper for forms that allows you to use the full HTML spec for select option elements."
-  s.description = "Enhances the default capabilities found with the Rails select helper. Instead of being able to supply just the value, text, and selected/disabled attributes, you can use all valid HTML attributes for select option elements."
+  s.summary     = "Enhances ActionView with a customizable select form helper."
+  s.description = "Enhances ActionView with a customizable select form helper where any valid HTML attribute can be applied."
 
   s.required_ruby_version = "~> 1.8.7"
   s.rdoc_options << "CHANGELOG.rdoc"
