@@ -1,7 +1,9 @@
-= vx.x.x (master)
+= v1.3.0
 
+* Fixed bug with enhanced_options_for_select method not being HTML safe.
 * Switched to Bundler for building/packing of gem.
 * Updated README to better support Rails 3.0.0.
+* Added Rails and ActionView detection.
 
 = v1.2.0
 
