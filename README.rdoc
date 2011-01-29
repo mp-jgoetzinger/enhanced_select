@@ -70,7 +70,6 @@ While the above is a simple example, lets look at a more interesting case. Lets 
 <b>Controller Code</b>
 
   class CityController < ApplicationController
-    include Rest
     before_filter :form_data, :only => [:new, :create, :edit, :update]
 
     private
@@ -84,6 +83,12 @@ While the above is a simple example, lets look at a more interesting case. Lets 
 
   <% form_for @city do |form| %>
     <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
+  <% end %>
+
+...or...
+
+  <% form_tag cities_path do %>
+    <div><%= select_tag :id, enhanced_options_for_select(@schools), :include_blank => "-select-" %></div>
   <% end %>
 
 This would yield the following results:
