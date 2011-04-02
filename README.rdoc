@@ -4,26 +4,19 @@ An enhanced select helper for forms that allows you to use the full {HTML spec}[
 option elements. For example, you could use the HTML5 data-* attributes, etc. This is more than what you get with the
 default Rails select helper which only allows you to specify the value, text, and selected/disabled attributes.
 
-= License
+= Features
 
-Copyright (c) 2010 {Red Alchemist}[http://www.redalchemist.com].
-See the included LICENSE for more info.
-
-= History
-
-See the CHANGELOG file for more info.
+* Fully customizable HTML5 attributes for select options.
 
 = Requirements
 
 1. {Ruby on Rails}[http://rubyonrails.org].
 
-= Installation
+= Setup
 
 Type the following from the command line to install:
 
   gem install enhanced_select
-
-= Configuration
 
 Add the following to your Gemfile:
 
@@ -31,7 +24,7 @@ Add the following to your Gemfile:
 
 = Usage
 
-Simply use "enhanced_select" instead of the Rails "select" helper method in your views:
+Use "enhanced_select" instead of the Rails "select" helper method in your views:
 
   <% form_for @city do |form| %>
     <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
@@ -103,6 +96,15 @@ This would yield the following results:
 
 The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text as shown above. The best part is that you have total control over how select options are built within your views.
 
-= Contact/Feedback/Issues
+Author
 
-* {Red Alchemist}[http://www.redalchemist.com]
+{Red Alchemist}[http://www.redalchemist.com]
+
+License
+
+Copyright (c) 2010 {Red Alchemist}[http://www.redalchemist.com].
+Read the LICENSE for details.
+
+History
+
+Read the CHANGELOG for details.
