@@ -96,15 +96,15 @@ This would yield the following results:
 
 The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text as shown above. The best part is that you have total control over how select options are built within your views.
 
-Author
+= Author
 
 {Red Alchemist}[http://www.redalchemist.com]
 
-License
+= License
 
 Copyright (c) 2010 {Red Alchemist}[http://www.redalchemist.com].
 Read the LICENSE for details.
 
-History
+= History
 
 Read the CHANGELOG for details.
