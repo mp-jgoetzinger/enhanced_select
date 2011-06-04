@@ -8,15 +8,17 @@ if defined?(Rails) && defined?(ActionView)
         end
 
         # Accepts a hash array of options and returns a string of option tags. Each option hash is expected to be comprised of valid
-      	# HTML option attributes (http://www.w3schools.com/tags/tag_option.asp) where the hash key is the HTML attribute name and the hash
-      	# value is the attribute value. If +selected+ is specified, then the matching option will get the selected.
+      	# HTML option attributes (http://www.w3schools.com/tags/tag_option.asp) where the hash key and value correspond to the HTML
+      	# attribute name and value. If +selected+ is specified, then the matching option will get the selected.
         #
         # ==== Examples:
-        #   enhanced_options_for_select [{:value => 1, :text => "New York"}, {:value => 2, :text => "Denver"}]
-        #   <option value="1">New York</option>\n<option value="2">Denver</option>
+        #   enhanced_options_for_select [{:text => "BBC", :value => 1}, {:text => "CNN", :value => 2}]
+        #   <option value="1">BBC</option>
+        #   <option value="2">CNN</option>
         #
-        #   enhanced_options_for_select [{:value => "bmw", :text => "BMW"}, {:value => "tesla", :text => "Tesla Motors"}], "tesla"
-        #   <option value="bmw">BMW</option>\n<option value="tesla" selected="selected">Tesla Motors</option>
+        #   enhanced_options_for_select [{:text => "BBC", :value => 1, "data-url" => "http://www.bbc.co.uk"}, {:text => "CNN", :value => 2, "data-url" => "data-url" => "http://www.cnn.com"}], 2
+        #   <option value="1" data-url="http://www.bbc.co.uk">BBC</option>
+        #   <option value="2" data-url="http://www.cnn.com" selected="selected">CNN</option>
         #
         # *NOTE*: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.			
         def enhanced_options_for_select options = [], selected = nil

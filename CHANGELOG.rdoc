@@ -1,3 +1,7 @@
+= vx.x.x
+
+* Updated all documentation with better examples.
+
 = v1.3.0
 
 * Fixed bug with enhanced_options_for_select method not being HTML safe.

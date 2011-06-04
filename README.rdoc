@@ -1,8 +1,8 @@
 = Overview
 
 An enhanced select helper for forms that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select
-option elements. For example, you could use the HTML5 data-* attributes, etc. This is more than what you get with the
-default Rails select helper which only allows you to specify the value, text, and selected/disabled attributes.
+option elements (example: HTML5 data-* attributes, etc.) This is more than what you get with the
+default Rails select helper which only allows you to specify value, text, and selected/disabled attributes.
 
 = Features
 
@@ -24,77 +24,58 @@ Add the following to your Gemfile:
 
 = Usage
 
-Use "enhanced_select" instead of the Rails "select" helper method in your views:
+Use the +enhanced_select+ instead of +select+ or use +enhanced_options_for_select+ instead of +options_for_select+ helper
+methods in your views. Example:
 
-  <% form_for @city do |form| %>
-    <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
+  <% form_for @post do |form| %>
+    <div><%= form.enhanced_select :category_id, @category_options %></div>
   <% end %>
 
-This will yield the following results:
+...or alternatively:
 
-  <select id="<auto filled>" name="<auto filled>">
-    <option value="">-select-</option>
-    <option value="1">Goldbugs</option>
-    <option value="2">Falcons</option>
+  <% form_tag "/posts/" do %>
+    <div><%= select_tag "category_id", @category_options %></div>
+  <% end %>
+
+The +enhanced_select+ or +enhanced_options_for_select+ method takes all the standard options as the default Rails select
+method. The only difference is that it expects an array of hashes instead of an array of arrays. For example, in the past
+you could only define select options as follows:
+
+  @category_options = [["News", 1], ["Software", 2], ["Books", 3]]
+
+...but now you can do the following instead:
+
+  @category_options = [{:text => "News", :value => 1}, {:text => "Software", :value => 2}, {:text => "Books", :value => 3}]
+
+Notice the use of the :text key in the hashes above. With an enhanced select option, you have to explicitly define what your
+option text will be instead of the implicit assumption when using the Rails default select options.
+
+In either case, the resulting output would be the following:
+
+  <select id="<auto generated>" name="<auto auto generated>">
+    <option value="1">News</option>
+    <option value="2">Software</option>
+    <option value="3">Books</option>
   </select>
 
-The enhanced_select method takes all the standard options as the default Rails select method. The only difference is that for
-the options, it expects an array of hashes. So using the @schools variable above, we would have filled it with the following data:
+Where this gets interesting is when you want to make use of additional option attributes like HTML5 data-* attributes.
+For example:
 
-  @schools = [{:value => 1, :text => "Goldbugs"}, {:value => 2, :text => "Falcons"}]
+  @category_options = [
+    {:text => "News", :value => 1, "data-icon" => "/icons/news.png"},
+    {:text => "Software", :value => 2, "data-icon" => "/icons/software.png"},
+    {:text => "Books", :value => 3, "data-icon" => "/icons/books.png"}
+  ]
 
-<b>NOTE:</b> While enhanced_select accepts a hash where all keys will be represented as attribute keys in the resulting HTML, the
-:text key is reserved for specifying the content you wish to display between the resulting <option></option> tags.
+Which produces the following output:
 
-While the above is a simple example, lets look at a more interesting case. Lets say we want each school to have a CSS class associated with it so that we might be able to attach jQuery behaviors to each option (that and/or we want to style each option too). Here is how things might play out:
-
-<b>Model Code</b>
-
-  class City < ActiveRecord::Base
-    has_many :schools
-  end
-
-  class School < ActiveRecord::Base
-    belongs_to :city
-	
-    def kind
-      [(public? ? "public" : nil), (private? ? "private" : nil)].compact * ' '
-    end
-  end
-
-<b>Controller Code</b>
-
-  class CityController < ApplicationController
-    before_filter :form_data, :only => [:new, :create, :edit, :update]
-
-    private
-
-    def form_data
-      @schools = School.all.map {|school| {:value => school.id, :class => school.kind, :text => school.label}}
-    end
-  end
-
-<b>View Code</b>
-
-  <% form_for @city do |form| %>
-    <div><%= form.enhanced_select :id, @schools, :include_blank => "-select-" %></div>
-  <% end %>
-
-...or...
-
-  <% form_tag cities_path do %>
-    <div><%= select_tag :id, enhanced_options_for_select(@schools), :include_blank => "-select-" %></div>
-  <% end %>
-
-This would yield the following results:
-
-  <select id="<auto filled>" name="<auto filled>">
-    <option value="">-select-</option>
-    <option value="1" class="private">Goldbugs</option>
-    <option value="2" class="public">Falcons</option>
+  <select id="<auto generated>" name="<auto auto generated>">
+    <option value="1" data-icon="/icons/news.png">News</option>
+    <option value="2" data-icon="/icons/software.png">Software</option>
+    <option value="3" data-icon="/icons/books.png">Books</option>
   </select>
 
-The possibilities are up to you as you can definitely build a hash array of options with more attributes than value, class, and text as shown above. The best part is that you have total control over how select options are built within your views.
+The possibilities are endless as you can use any valid HTM5 attribute for your select options now.
 
 = Author
 
