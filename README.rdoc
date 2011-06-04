@@ -1,6 +1,6 @@
 = Overview
 
-An enhanced select helper for forms that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select
+An enhanced select form helper that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select
 option elements (example: HTML5 data-* attributes, etc.) This is more than what you get with the
 default Rails select helper which only allows you to specify value, text, and selected/disabled attributes.
 

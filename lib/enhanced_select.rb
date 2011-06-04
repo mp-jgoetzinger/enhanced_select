@@ -20,7 +20,7 @@ if defined?(Rails) && defined?(ActionView)
         #   <option value="1" data-url="http://www.bbc.co.uk">BBC</option>
         #   <option value="2" data-url="http://www.cnn.com" selected="selected">CNN</option>
         #
-        # *NOTE*: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.			
+        # *NOTE*: Only the option tags are returned, you have to wrap this call in a regular HTML select tag.	
         def enhanced_options_for_select options = [], selected = nil
       		# Ensure option selections are unique.
       		options.each {|option| option.delete :selected}
