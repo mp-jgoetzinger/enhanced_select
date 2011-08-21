@@ -12,9 +12,8 @@ Gem::Specification.new do |s|
   s.summary     = "Enhances ActionView with a customizable select form helper."
   s.description = "Enhances ActionView with a customizable select form helper where any valid HTML attribute can be applied."
 
-  s.required_ruby_version = "~> 1.8.7"
   s.rdoc_options << "CHANGELOG.rdoc"
-  s.add_dependency "rails", "~> 3.0.0"
+  s.add_dependency "rails", ">= 3.0.0"
   s.add_development_dependency "rspec"
   
   s.files         = `git ls-files`.split("\n")
