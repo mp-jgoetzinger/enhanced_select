@@ -1,16 +1,28 @@
 require "spec_helper"
 
 describe "Enhanced Select" do
-  class MockView < ActionView::Base
-  end
-  
   before :each do
-    @mock_view = MockView.new
-    @options = [{:text => "One", :value => 1}, {:text => "Two", :value => 2}, {:text => "Three", :value => 3}]
+    @standard_options = [
+      {:text => "One", :value => 1},
+      {:text => "Two", :value => 2},
+      {:text => "Three", :value => 3}
+    ]
+    @enhanced_options = [
+      {:text => "One", :value => 1, "data-url" => "/tasks/1"},
+      {:text => "Two", :value => 2, "data-url" => "/tasks/2"},
+      {:text => "Three", :value => 3, "data-url" => "/tasks/3"}
+    ]
   end
-  
-	it "should be testable" do
-	  # Unable to test due to issues with loading the view helpers.
-    # @mock_view.enhanced_options_for_select @options
-	end
+
+  context "Standard" do
+  	it "should construct valid options" do
+  	  enhanced_options_for_select(@standard_options).should == "<option value=1>One</option>\n<option value=2>Two</option>\n<option value=3>Three</option>"
+    end
+  end
+
+  context "Resource" do
+  	it "should construct valid options" do
+  	  enhanced_options_for_select(@enhanced_options).should == "<option value=1 data-url=/tasks/1>One</option>\n<option value=2 data-url=/tasks/2>Two</option>\n<option value=3 data-url=/tasks/3>Three</option>"
+    end
+  end
 end
