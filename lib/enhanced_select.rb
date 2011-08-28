@@ -9,14 +9,14 @@ if defined?(Rails) && defined?(ActionView)
 
         # Accepts a hash array of options and returns a string of option tags. Each option hash is expected to be comprised of valid
       	# HTML option attributes (http://www.w3schools.com/tags/tag_option.asp) where the hash key and value correspond to the HTML
-      	# attribute name and value. If +selected+ is specified, then the matching option will get the selected.
+      	# attribute name and value. If +selected+ is specified, then the matching option will be selected.
         #
         # ==== Examples:
         #   enhanced_options_for_select [{:text => "BBC", :value => 1}, {:text => "CNN", :value => 2}]
         #   <option value="1">BBC</option>
         #   <option value="2">CNN</option>
         #
-        #   enhanced_options_for_select [{:text => "BBC", :value => 1, "data-url" => "http://www.bbc.co.uk"}, {:text => "CNN", :value => 2, "data-url" => "data-url" => "http://www.cnn.com"}], 2
+        #   enhanced_options_for_select [{:text => "BBC", :value => 1, "data-url" => "http://www.bbc.co.uk"}, {:text => "CNN", :value => 2, "data-url" => "http://www.cnn.com"}], :selected => 2
         #   <option value="1" data-url="http://www.bbc.co.uk">BBC</option>
         #   <option value="2" data-url="http://www.cnn.com" selected="selected">CNN</option>
         #
@@ -29,16 +29,16 @@ if defined?(Rails) && defined?(ActionView)
       			option[:selected] = "selected" if option[:value] == selected
       			html = "<option"
       			option.each_pair {|key, value| html << build_attribute(key, value)}
-      			html << ">#{html_escape option[:text].to_s}</option>\n"
+      			html << ">#{ERB::Util.html_escape option[:text].to_s}</option>"
       			html
-          end.to_s.html_safe
+          end.join("\n").html_safe
         end
 
       	private
 
-      	# Convenience method for assembling attributes based on a key and value.
+      	# Convenience method for assembling attributes based on a key=value pairs.
       	def build_attribute key, value
-      		key == :text ? '' : " #{key.to_s}=\"#{html_escape value.to_s}\""
+      		key == :text ? '' : " #{key.to_s}=#{ERB::Util.html_escape value.to_s}"
       	end
       end
 

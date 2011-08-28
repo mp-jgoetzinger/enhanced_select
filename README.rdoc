@@ -27,13 +27,13 @@ Add the following to your Gemfile:
 Use the +enhanced_select+ instead of +select+ or use +enhanced_options_for_select+ instead of +options_for_select+ helper
 methods in your views. Example:
 
-  <% form_for @post do |form| %>
+  <%= form_for @post do |form| %>
     <div><%= form.enhanced_select :category_id, @category_options %></div>
   <% end %>
 
 ...or alternatively:
 
-  <% form_tag "/posts/" do %>
+  <%= form_tag "/posts/" do %>
     <div><%= select_tag "category_id", enhanced_options_for_select(@category_options) %></div>
   <% end %>
 
