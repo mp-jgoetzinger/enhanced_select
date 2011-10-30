@@ -77,9 +77,13 @@ Which produces the following output:
 
 The possibilities are endless as you can use any valid HTM5 attribute for your select options now.
 
-= Author
+= Company
 
 {Red Alchemist}[http://www.redalchemist.com]
+
+= Author
+
+{Brooke Kuhlmann}[http://www.redalchemist.com]
 
 = License
 
