@@ -10,7 +10,8 @@ default Rails select helper which only allows you to specify value, text, and se
 
 = Requirements
 
-1. {Ruby on Rails}[http://rubyonrails.org].
+1. {Ruby 1.9.x}[http://www.ruby-lang.org]
+2. {Ruby on Rails}[http://rubyonrails.org].
 
 = Setup
 
