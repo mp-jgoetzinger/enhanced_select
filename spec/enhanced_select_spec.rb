@@ -3,14 +3,14 @@ require "spec_helper"
 describe "Enhanced Select" do
   before :each do
     @standard_options = [
-      {:text => "One", :value => 1},
-      {:text => "Two", :value => 2},
-      {:text => "Three", :value => 3}
+      {text: "One", value: 1},
+      {text: "Two", value: 2},
+      {text: "Three", value: 3}
     ]
     @enhanced_options = [
-      {:text => "One", :value => 1, "data-url" => "/tasks/1"},
-      {:text => "Two", :value => 2, "data-url" => "/tasks/2"},
-      {:text => "Three", :value => 3, "data-url" => "/tasks/3"}
+      {text: "One", value: 1, "data-url" => "/tasks/1"},
+      {text: "Two", value: 2, "data-url" => "/tasks/2"},
+      {text: "Three", value: 3, "data-url" => "/tasks/3"}
     ]
   end
 

@@ -45,7 +45,7 @@ you could only define select options as follows:
 
 ...but now you can do the following instead:
 
-  @category_options = [{:text => "News", :value => 1}, {:text => "Software", :value => 2}, {:text => "Books", :value => 3}]
+  @category_options = [{text: "News", value: 1}, {text: "Software", value: 2}, {text: "Books", value: 3}]
 
 Notice the use of the :text key in the hashes above. With an enhanced select option, you have to explicitly define what your
 option text will be instead of the implicit assumption when using the Rails default select options.
@@ -62,9 +62,9 @@ Where this gets interesting is when you want to make use of additional option at
 For example:
 
   @category_options = [
-    {:text => "News", :value => 1, "data-icon" => "/icons/news.png"},
-    {:text => "Software", :value => 2, "data-icon" => "/icons/software.png"},
-    {:text => "Books", :value => 3, "data-icon" => "/icons/books.png"}
+    {text: "News", value: 1, "data-icon" => "/icons/news.png"},
+    {text: "Software", value: 2, "data-icon" => "/icons/software.png"},
+    {text: "Books", value: 3, "data-icon" => "/icons/books.png"}
   ]
 
 Which produces the following output:

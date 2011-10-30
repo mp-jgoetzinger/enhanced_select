@@ -12,11 +12,11 @@ if defined?(Rails) && defined?(ActionView)
       	# attribute name and value. If +selected+ is specified, then the matching option will be selected.
         #
         # ==== Examples:
-        #   enhanced_options_for_select [{:text => "BBC", :value => 1}, {:text => "CNN", :value => 2}]
+        #   enhanced_options_for_select [{text: "BBC", value: 1}, {text: "CNN", value: 2}]
         #   <option value="1">BBC</option>
         #   <option value="2">CNN</option>
         #
-        #   enhanced_options_for_select [{:text => "BBC", :value => 1, "data-url" => "http://www.bbc.co.uk"}, {:text => "CNN", :value => 2, "data-url" => "http://www.cnn.com"}], :selected => 2
+        #   enhanced_options_for_select [{text: "BBC", value: 1, "data-url" => "http://www.bbc.co.uk"}, {text: "CNN", value: 2, "data-url" => "http://www.cnn.com"}], selected: 2
         #   <option value="1" data-url="http://www.bbc.co.uk">BBC</option>
         #   <option value="2" data-url="http://www.cnn.com" selected="selected">CNN</option>
         #
