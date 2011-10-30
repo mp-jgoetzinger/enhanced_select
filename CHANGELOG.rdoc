@@ -1,3 +1,8 @@
+= v2.0.0
+
+* Upgraded to Ruby 1.9 and applied Ruby 1.9 syntax changes.
+* Applied new Gemsmith specifications.
+
 = v1.4.0
 
 * Fixed double quote and html_escape errors with Rails 3.1. Fully compatible with Rails 3.1 now.
