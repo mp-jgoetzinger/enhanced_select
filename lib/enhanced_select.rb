@@ -28,7 +28,7 @@ if defined?(Rails) && defined?(ActionView)
           options.map do |option|
       			option[:selected] = "selected" if option[:value] == selected
       			html = "<option"
-      			option.each_pair {|key, value| html << build_attribute(key, value)}
+      			option.each {|key, value| html << build_attribute(key, value)}
       			html << ">#{ERB::Util.html_escape option[:text].to_s}</option>"
       			html
           end.join("\n").html_safe
