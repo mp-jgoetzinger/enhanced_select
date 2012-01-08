@@ -1,3 +1,12 @@
+= v2.1.0
+
+* Added Ruby 1.9.x requirement to README.
+* Removed the Ruby Gems requirement and switched the use of the each_pair method with each for hashes.
+* Applied Gemsmith updates to README.
+* Added the spec/tmp dir to .gitignore.
+* Added Travis CI support.
+* Added RSpec formatting and cleaned up gem dependencies.
+
 = v2.0.0
 
 * Upgraded to Ruby 1.9 and applied Ruby 1.9 syntax changes.
