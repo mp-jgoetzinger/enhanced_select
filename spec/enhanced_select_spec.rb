@@ -14,14 +14,12 @@ describe "Enhanced Select" do
     ]
   end
 
-  context "Standard" do
-  	it "should construct valid options" do
+  describe ".enhanced_options_for_select" do
+  	it "constructs options with text and values" do
   	  enhanced_options_for_select(@standard_options).should == "<option value=1>One</option>\n<option value=2>Two</option>\n<option value=3>Three</option>"
     end
-  end
 
-  context "Resource" do
-  	it "should construct valid options" do
+  	it "construct options with text, values, and data* attributes" do
   	  enhanced_options_for_select(@enhanced_options).should == "<option value=1 data-url=/tasks/1>One</option>\n<option value=2 data-url=/tasks/2>Two</option>\n<option value=3 data-url=/tasks/3>Three</option>"
     end
   end
