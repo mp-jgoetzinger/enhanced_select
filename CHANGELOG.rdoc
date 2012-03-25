@@ -1,3 +1,11 @@
+= v2.2.0
+
+* Switched gem dependency to Rails 3.x.x range.
+* Added Travis CI build matrix for Rails 3.0.x to Rails 3.2.x.
+* Switched gemspecs to listing files via Ruby code rather than shelling out to Git.
+* Removed the packaging of test files.
+* Switched RSpec describes to using method names for easier readability.
+
 = v2.1.0
 
 * Added Ruby 1.9.x requirement to README.
