@@ -1,6 +1,8 @@
 require "spec_helper"
 
 describe "Enhanced Select" do
+  include ActionView::Helpers::FormOptionsHelper
+
   before :each do
     @standard_options = [
       {text: "One", value: 1},
