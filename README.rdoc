@@ -1,7 +1,7 @@
 = Overview
 
 {<img src="https://badge.fury.io/rb/enhanced_select.png" alt="Gem Version" />}[http://badge.fury.io/rb/enhanced_select]
-{<img src="https://secure.travis-ci.org/bkuhlmann/enhanced_select.png" />}[http://travis-ci.org/bkuhlmann/enhanced_select]
+{<img src="https://secure.travis-ci.org/bkuhlmann/enhanced_select.png" alt="Travis CI Status" />}[http://travis-ci.org/bkuhlmann/enhanced_select]
 
 An enhanced select form helper that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select
 option elements (example: HTML5 data-* attributes, etc.) This is more than what you get with the
