@@ -7,6 +7,7 @@
 * Added enhanced_select method specs.
 * Added Gem Badge support.
 * Added image alt tag for Travis CI build status.
+* Added Code Climate badge to README.
 
 = v2.2.0
 
