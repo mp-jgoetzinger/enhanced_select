@@ -1,11 +1,43 @@
+
 = Overview
 
 {<img src="https://badge.fury.io/rb/enhanced_select.png" alt="Gem Version" />}[http://badge.fury.io/rb/enhanced_select]
 {<img src="https://secure.travis-ci.org/bkuhlmann/enhanced_select.png" alt="Travis CI Status" />}[http://travis-ci.org/bkuhlmann/enhanced_select]
 
 An enhanced select form helper that allows you to use the full {HTML spec}[http://www.w3.org/TR/html5] for select
-option elements (example: HTML5 data-* attributes, etc.) This is more than what you get with the
-default Rails select helper which only allows you to specify value, text, and selected/disabled attributes.
+option elements (example: HTML5 data-* attributes, etc.)
+
+= Attention!
+
+This gem will be terminated on January 1, 2014. Source code and related gem versions will be completely removed from
+GitHub and RubyGems. Please use the Rails helpers as you can pass additional attributes (like data-* attributes) to
+them instead of using this this gem. Example:
+
+  @category_options = [
+                        ["News", 1, "data-icon" => "icons/news.png"],
+                        ["Software", 2, "data-icon" => "icons/software.png"],
+                        ["Books", 3, "data-icon" => "icons/books.png"]
+                      ]
+  options_for_select @category_options
+
+Output:
+
+  <option value="1" data-icon="/icons/news.png">News</option>
+  <option value="2" data-icon="/icons/software.png">Software</option>
+  <option value="3" data-icon="/icons/books.png">Books</option>
+
+The first and second elements of each sub-array must consist of the option text and value but any number of hash values
+can be supplied afterward. Here is another example (using additional HTML tag attributes):
+
+  @category_options = [["Podcasts", 1, class: "podcasts", title: "A collection of news and discussions"]]
+  options_for_select @category_options
+
+Output:
+
+  <option value="1" class="podcasts" title="A collection of news and discussions">News</option>
+
+This format is not limited to the options_for_select helper but can also be used with select and select_tag helpers too.
+Hence, there is no further need for this gem. Use the Rails form helpers instead!
 
 = Features
 
@@ -56,7 +88,7 @@ option text will be instead of the implicit assumption when using the Rails defa
 
 In either case, the resulting output would be the following:
 
-  <select id="<auto generated>" name="<auto auto generated>">
+  <select id="<placeholder>" name="<placeholder>">
     <option value="1">News</option>
     <option value="2">Software</option>
     <option value="3">Books</option>
@@ -73,7 +105,7 @@ For example:
 
 Which produces the following output:
 
-  <select id="<auto generated>" name="<auto auto generated>">
+  <select id="<placeholder>" name="<placeholder>">
     <option value="1" data-icon="/icons/news.png">News</option>
     <option value="2" data-icon="/icons/software.png">Software</option>
     <option value="3" data-icon="/icons/books.png">Books</option>
