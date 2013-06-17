@@ -24,7 +24,7 @@ describe "Enhanced Select" do
   describe ".enhanced_select" do
     it "constructs options with text and values" do
       html = enhanced_select @item, :name, @standard_options
-      html.include?("<option value=1>One</option>").should be_true 
+      html.include?("<option value=1>One</option>").should be_true
     end
 
     it "constructs options with text, values, and data attributes" do

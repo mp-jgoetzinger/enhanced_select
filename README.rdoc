@@ -1,6 +1,6 @@
 = Attention
 
-This gem will be terminated on January 1, 2014. Source code and related gem versions will be completely removed from
+This gem will be terminated on January 1, 2014! Source code and related gem versions will be completely removed from
 GitHub and RubyGems. Please use the Rails helpers as you can pass additional attributes (like data-* attributes) to
 them instead of using this this gem. Example:
 
