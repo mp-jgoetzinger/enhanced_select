@@ -1,3 +1,3 @@
 module EnhancedSelect
-  VERSION = "2.3.1"
+  VERSION = "10.0.0"
 end
