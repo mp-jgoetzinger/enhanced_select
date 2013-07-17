@@ -38,7 +38,7 @@ if defined?(Rails) && defined?(ActionView)
 
       	# Convenience method for assembling attributes based on a key=value pairs.
       	def build_attribute key, value
-      		key == :text ? '' : " #{key.to_s}=#{ERB::Util.html_escape value.to_s}"
+      		key == :text ? '' : " #{key.to_s}='#{ERB::Util.html_escape value.to_s}'"
       	end
       end
 
